@@ -51,47 +51,5 @@ folioverse/
         └── index.html                   # Modern Bento Grid portfolio template
 ```
 
----
-
-## ⚡ How to Run Locally
-
-Because FolioVerse uses standard static web technologies, you can run it using any method:
-
-### Method 1: Python Built-in Server (Recommended)
-Open PowerShell or your terminal in the `folioverse` directory:
-```powershell
-python -m http.server 3000
-```
-Then open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Method 2: Node.js `npx serve`
-```bash
-npx serve .
-```
-
-### Method 3: Direct File Opening
-Double-click `index.html` or open it directly in Chrome, Firefox, Safari, or Edge.
-
----
-
-## 🚢 Free 1-Minute Deployment Options
-
-### 1. GitHub Pages
-1. Push this folder to a GitHub repository.
-2. Go to **Settings** &rarr; **Pages**.
-3. Under **Branch**, select `main` and `/ (root)` folder.
-4. Click **Save**. Your portfolio is live at `https://<username>.github.io/<repo>/`!
-
-### 2. Netlify Drop
-1. Visit [app.netlify.com/drop](https://app.netlify.com/drop).
-2. Drag and drop the `folioverse` folder directly onto the browser window.
-3. Your site deploys in under 5 seconds with an instant SSL link.
-
-### 3. Vercel
-1. Install Vercel CLI with `npm i -g vercel` or import from GitHub on [vercel.com](https://vercel.com).
-2. Run `vercel` and press enter to deploy instantly.
-
----
-
 ## 📄 License
 Released under the **MIT License**. Free for personal and commercial usage.
