@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dev@root:~$ &mdash; Terminal Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Fira Code', monospace; }
+    .scanlines {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 4px 100%;
+      pointer-events: none;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-[#090d16] text-emerald-400 min-h-screen p-3 sm:p-6 flex flex-col justify-center items-center select-none relative">
+  <div class="fixed inset-0 scanlines z-20"></div>
+
+  <!-- Terminal Window Shell -->
+  <div class="w-full max-w-4xl bg-[#0d131f] border border-emerald-500/30 rounded-xl shadow-2xl shadow-emerald-950/40 overflow-hidden flex flex-col h-[90vh] z-10">
+    <!-- Window Bar -->
+    <div class="bg-[#141d2e] px-4 py-3 border-b border-emerald-500/20 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+        <span class="text-xs text-emerald-400/70 font-semibold ml-2">guest@samuel-vance:~ (zsh)</span>
+      </div>
+      <div class="text-xs text-emerald-500/60 hidden sm:block">
+        UTF-8 &middot; 80x24 &middot; session: active
+      </div>
+    </div>
+
+    <!-- Quick Command Bar / Chips -->
+    <div class="bg-[#111927] px-4 py-2 border-b border-emerald-500/10 flex items-center gap-2 overflow-x-auto text-xs whitespace-nowrap">
+      <span class="text-zinc-500">Quick run:</span>
+      <button onclick="executeCommand('help')" class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 transition">help</button>
+      <button onclick="executeCommand('about')" class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 transition">about</button>
+      <button onclick="executeCommand('skills')" class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 transition">skills</button>
+      <button onclick="executeCommand('projects')" class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 transition">projects</button>
+      <button onclick="executeCommand('contact')" class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 transition">contact</button>
+      <button onclick="executeCommand('clear')" class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-800/40 transition">clear</button>
+    </div>
+
+    <!-- Terminal Output Body -->
+    <div id="terminalOutput" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 text-sm font-mono custom-scrollbar select-text leading-relaxed">
+      <div class="text-emerald-500/80">
+        <pre class="text-xs sm:text-sm text-emerald-400 font-bold leading-none">
+  ___                               _  __   __
+ / __|  __ _   _ __    _  _   ___  | | \ \ / /  __ _   _ _    __   ___
+ \__ \ / _` | | '  \  | || | / -_) | |  \ V /  / _` | | ' \  / _| / -_)
+ |___/ \__,_| |_|_|_|  \_,_| \___| |_|   \_/   \__,_| |_||_| \__| \___|
+        </pre>
+        <p class="mt-2 text-xs text-zinc-400">Terminal v2.4.0 (x86_64-pc-sys-web) &mdash; Interactive Portfolio Shell</p>
+        <p class="text-xs text-zinc-500">Type <span class="text-amber-400 font-semibold">'help'</span> to see all available commands, or click the toolbar chips above.</p>
+      </div>
+
+      <div class="space-y-1">
+        <p><span class="text-cyan-400 font-bold">➜</span> <span class="text-emerald-300">samuel-vance</span> git:(<span class="text-rose-400">main</span>) <span class="text-zinc-300">fastfetch</span></p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300 border border-emerald-500/20 p-3 rounded bg-black/20">
+          <div><span class="text-emerald-400 font-semibold">User:</span> Samuel Vance</div>
+          <div><span class="text-emerald-400 font-semibold">Role:</span> Full-Stack Security & Cloud Engineer</div>
+          <div><span class="text-emerald-400 font-semibold">OS:</span> Linux Arch x86_64 / Alpine</div>
+          <div><span class="text-emerald-400 font-semibold">Location:</span> Austin, TX (Remote)</div>
+          <div><span class="text-emerald-400 font-semibold">Shell:</span> zsh 5.9 + Starship</div>
+          <div><span class="text-emerald-400 font-semibold">Status:</span> Open to Senior Contract & SecDevOps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Command Input Bar -->
+    <form id="commandForm" class="bg-[#111927] p-3 border-t border-emerald-500/20 flex items-center gap-2">
+      <span class="text-cyan-400 font-bold text-sm">➜</span>
+      <span class="text-emerald-400 text-sm hidden sm:inline">guest@portfolio:~$</span>
+      <input 
+        id="cliInput" 
+        type="text" 
+        autocomplete="off" 
+        autofocus 
+        placeholder="Type a command (e.g. 'help', 'projects', 'contact')..." 
+        class="flex-1 bg-transparent border-none outline-none text-emerald-300 font-mono text-sm placeholder-zinc-600 focus:ring-0"
+      />
+      <button type="submit" class="text-xs bg-emerald-500/20 border border-emerald-500/40 hover:bg-emerald-500/30 text-emerald-300 px-3 py-1.5 rounded transition">
+        Enter ↵
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const output = document.getElementById('terminalOutput');
+    const input = document.getElementById('cliInput');
+    const form = document.getElementById('commandForm');
+
+    const history = [];
+    let historyIndex = -1;
+
+    const commands = {
+      help: () => `
+<div class="text-xs space-y-1">
+  <p class="text-amber-400 font-bold mb-2">Available System Commands:</p>
+  <div><span class="text-emerald-300 font-semibold w-24 inline-block">about</span> &mdash; Brief summary of background, philosophy & education</div>
+  <div><span class="text-emerald-300 font-semibold w-24 inline-block">skills</span> &mdash; Technical proficiencies, frameworks & toolset</div>
+  <div><span class="text-emerald-300 font-semibold w-24 inline-block">projects</span> &mdash; Showcase of active & completed open-source projects</div>
+  <div><span class="text-emerald-300 font-semibold w-24 inline-block">contact</span> &mdash; Email, PGP key, socials & channels</div>
+  <div><span class="text-emerald-300 font-semibold w-24 inline-block">clear</span> &mdash; Clean up current terminal buffer</div>
+  <div><span class="text-emerald-300 font-semibold w-24 inline-block">sudo</span> &mdash; Superuser permissions test</div>
+  <div><span class="text-emerald-300 font-semibold w-24 inline-block">matrix</span> &mdash; Digital rain easter egg</div>
+</div>`,
+
+      about: () => `
+<div class="text-xs space-y-2 text-zinc-300">
+  <p class="text-emerald-300 font-bold">/// BIOGRAPHY</p>
+  <p>I'm Samuel Vance, a software engineer with 7+ years of experience specialized in infrastructure security, zero-trust architectures, and high-performance backend systems in Go, Rust, and Node.js.</p>
+  <p>Passionate about cryptographic tooling, low-latency microservices, and writing resilient systems that fail gracefully.</p>
+</div>`,
+
+      skills: () => `
+<div class="text-xs space-y-3">
+  <p class="text-emerald-300 font-bold">/// TECHNICAL STACK</p>
+  <div>
+    <span class="text-cyan-400">[Languages]</span>: Go, Rust, TypeScript, Python, C, Bash
+  </div>
+  <div>
+    <span class="text-cyan-400">[Infrastructure]</span>: Docker, Kubernetes, Terraform, AWS, Cloudflare Workers, WireGuard
+  </div>
+  <div>
+    <span class="text-cyan-400">[Databases]</span>: PostgreSQL, Redis, SQLite, ClickHouse, BadgerDB
+  </div>
+  <div>
+    <span class="text-cyan-400">[Security]</span>: OWASP Top 10, eBPF telemetry, TLS/mTLS, Vault, SIEM
+  </div>
+</div>`,
+
+      projects: () => `
+<div class="text-xs space-y-4">
+  <p class="text-emerald-300 font-bold">/// FEATURED REPOSITORIES</p>
+  
+  <div class="border-l-2 border-emerald-500 pl-3">
+    <div class="text-sm font-semibold text-white">01. NetWard &mdash; Zero-Trust Mesh Tunnel</div>
+    <p class="text-zinc-400">Peer-to-peer encrypted WireGuard overlay written in Go with automated NAT traversal and multi-tenant ACLs.</p>
+    <div class="text-zinc-500 font-mono mt-1">★ 950+ stars &middot; Go, WireGuard, SQLite</div>
+  </div>
+
+  <div class="border-l-2 border-emerald-500 pl-3">
+    <div class="text-sm font-semibold text-white">02. BastionAudit &mdash; Automated SSH Policy Enforcer</div>
+    <p class="text-zinc-400">Real-time session multiplexer and keystroke anomaly detector with eBPF probes.</p>
+    <div class="text-zinc-500 font-mono mt-1">★ 420+ stars &middot; Rust, eBPF, Linux</div>
+  </div>
+
+  <div class="border-l-2 border-emerald-500 pl-3">
+    <div class="text-sm font-semibold text-white">03. KeyVault-Lite &mdash; Ephemeral Secret Store</div>
+    <p class="text-zinc-400">Lightweight end-to-end encrypted secret sharing daemon with automated burn-after-read URLs.</p>
+    <div class="text-zinc-500 font-mono mt-1">★ 610+ stars &middot; TypeScript, React, Redis</div>
+  </div>
+</div>`,
+
+      contact: () => `
+<div class="text-xs space-y-2 text-zinc-300">
+  <p class="text-emerald-300 font-bold">/// TRANSMISSION CHANNELS</p>
+  <p><span class="text-zinc-500">Email:</span> <a href="mailto:samuel@vance.dev" class="text-amber-400 underline">samuel@vance.dev</a></p>
+  <p><span class="text-zinc-500">GitHub:</span> <a href="https://github.com" target="_blank" class="text-amber-400 underline">github.com/samuel-vance</a></p>
+  <p><span class="text-zinc-500">Keybase:</span> <span class="text-zinc-300">keybase.io/svance</span></p>
+  <p><span class="text-zinc-500">PGP Fingerprint:</span> <span class="text-zinc-400 font-mono">4A89 2C10 DF4B 882E 11A0</span></p>
+</div>`,
+
+      sudo: () => `<div class="text-xs text-rose-400 font-semibold">guest is not in the sudoers file. This incident will be reported to Santa.</div>`,
+
+      matrix: () => `
+<div class="text-xs text-emerald-400 font-mono animate-pulse">
+  Wake up, Neo...<br>
+  The Matrix has you...<br>
+  Follow the white rabbit. 🐇
+</div>`,
+
+      clear: () => {
+        output.innerHTML = '';
+        return null;
+      }
+    };
+
+    function executeCommand(cmdStr) {
+      const cleanCmd = cmdStr.trim().toLowerCase();
+      if (!cleanCmd) return;
+
+      history.push(cmdStr);
+      historyIndex = history.length;
+
+      // Add user command line to output
+      const cmdEntry = document.createElement('div');
+      cmdEntry.innerHTML = `<span class="text-cyan-400 font-bold">➜</span> <span class="text-emerald-300">guest@portfolio:~$</span> <span class="text-white">${escapeHtml(cmdStr)}</span>`;
+      output.appendChild(cmdEntry);
+
+      if (commands[cleanCmd]) {
+        const res = commands[cleanCmd]();
+        if (res !== null) {
+          const resEntry = document.createElement('div');
+          resEntry.innerHTML = res;
+          output.appendChild(resEntry);
+        }
+      } else {
+        const errEntry = document.createElement('div');
+        errEntry.innerHTML = `<span class="text-rose-400 text-xs">zsh: command not found: ${escapeHtml(cleanCmd)}. Type <span class="text-amber-400 font-semibold">'help'</span> for list of commands.</span>`;
+        output.appendChild(errEntry);
+      }
+
+      output.scrollTop = output.scrollHeight;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      executeCommand(input.value);
+      input.value = '';
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp') {
+        if (historyIndex > 0) {
+          historyIndex--;
+          input.value = history[historyIndex];
+        }
+      } else if (e.key === 'ArrowDown') {
+        if (historyIndex < history.length - 1) {
+          historyIndex++;
+          input.value = history[historyIndex];
+        } else {
+          historyIndex = history.length;
+          input.value = '';
+        }
+      }
+    });
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>

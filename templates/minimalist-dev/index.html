@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Rivera — Senior Software Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 min-h-screen transition-colors duration-200">
+  <!-- Top Navigation -->
+  <header class="sticky top-0 z-40 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur border-b border-zinc-200 dark:border-zinc-800">
+    <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#hero" class="font-semibold text-lg tracking-tight hover:opacity-80 transition-opacity">
+        alex<span class="text-emerald-500">.rivera</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium">
+        <a href="#about" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">About</a>
+        <a href="#projects" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</a>
+        <a href="#experience" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</a>
+        <a href="#contact" class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a>
+        <button id="themeToggle" class="p-2 rounded-lg bg-zinc-200/70 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors" aria-label="Toggle Theme">
+          <svg id="moonIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg id="sunIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-16 space-y-24">
+    <!-- Hero Section -->
+    <section id="hero" class="space-y-6 pt-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Available for selective client work & open-source
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white leading-tight">
+        Crafting resilient distributed systems and elegant developer tools.
+      </h1>
+      <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        I am Alex Rivera, a software architect based in Seattle. Currently building high-throughput infrastructure at <span class="font-medium text-zinc-900 dark:text-white underline decoration-zinc-400 dark:decoration-zinc-600 underline-offset-4">CloudScale Labs</span>. Obsessed with fast APIs, type safety, and minimal interfaces.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 pt-2">
+        <a href="#contact" class="px-5 py-2.5 bg-zinc-900 dark:bg-white text-zinc-50 dark:text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors">
+          Get in touch
+        </a>
+        <a href="#projects" class="px-5 py-2.5 border border-zinc-300 dark:border-zinc-800 rounded-lg text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+          Explore Projects &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="space-y-6">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">About Me</h2>
+      <div class="space-y-4 text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        <p>
+          Over the past 8+ years, I’ve worked across the full product lifecycle: from single-developer prototype to processing over 100M events per day on Kubernetes and AWS.
+        </p>
+        <p>
+          My focus centers around TypeScript, Go, Rust, and modern database topologies. When I am not writing code, I write technical deep-dives on concurrency and maintain open-source command-line utilities.
+        </p>
+      </div>
+
+      <!-- Skills Badges -->
+      <div class="pt-4 space-y-3">
+        <h3 class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Core Technologies</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">TypeScript</span>
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">Go (Golang)</span>
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">Rust</span>
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">PostgreSQL</span>
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">Redis</span>
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">Docker & K8s</span>
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">Next.js</span>
+          <span class="px-2.5 py-1 text-xs rounded-md bg-zinc-200/60 dark:bg-zinc-800/80 font-mono text-zinc-800 dark:text-zinc-300">GraphQL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="space-y-8">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Selected Work</h2>
+        <span class="text-xs text-zinc-400">2023 — Present</span>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Project 1 -->
+        <div class="group p-6 rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all">
+          <div class="flex items-start justify-between">
+            <h3 class="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+              PrismDB &mdash; Lightweight Embedded Vector Store
+            </h3>
+            <a href="#" class="text-xs font-mono text-zinc-400 hover:text-zinc-900 dark:hover:text-white">&nearr; GitHub</a>
+          </div>
+          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            A zero-dependency, memory-mapped vector search index written in Go with SIMD cosine similarity acceleration. Used by 1,400+ developers.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-zinc-500">
+            <span>#Go</span>
+            <span>#SIMD</span>
+            <span>#VectorSearch</span>
+            <span>#OpenSource</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group p-6 rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all">
+          <div class="flex items-start justify-between">
+            <h3 class="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+              TelemetryFlow &mdash; Real-time Metrics Pipeline
+            </h3>
+            <a href="#" class="text-xs font-mono text-zinc-400 hover:text-zinc-900 dark:hover:text-white">&nearr; Demo</a>
+          </div>
+          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Streaming analytics gateway capable of ingesting 250k messages/second with p99 latency under 4ms using Rust and Kafka.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-zinc-500">
+            <span>#Rust</span>
+            <span>#Kafka</span>
+            <span>#ClickHouse</span>
+            <span>#DistributedSystems</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="group p-6 rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-900/40 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all">
+          <div class="flex items-start justify-between">
+            <h3 class="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 transition-colors">
+              Chronos CLI &mdash; Developer Work log Companion
+            </h3>
+            <a href="#" class="text-xs font-mono text-zinc-400 hover:text-zinc-900 dark:hover:text-white">&nearr; Package</a>
+          </div>
+          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            A minimalist terminal utility that silently syncs git commit messages and branch activity into automated markdown changelogs.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs font-mono text-zinc-500">
+            <span>#TypeScript</span>
+            <span>#NodeCLI</span>
+            <span>#GitHook</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="space-y-8">
+      <h2 class="text-xs font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Experience</h2>
+      <div class="border-l border-zinc-200 dark:border-zinc-800 ml-2 space-y-8">
+        <div class="relative pl-6">
+          <span class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-zinc-50 dark:border-zinc-950"></span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between">
+            <h3 class="font-semibold text-zinc-900 dark:text-white">Principal Engineer &middot; CloudScale Labs</h3>
+            <span class="text-xs font-mono text-zinc-400">2022 &mdash; Present</span>
+          </div>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+            Leading the distributed computing team. Reduced multi-region data replication latency by 45% and reduced AWS infrastructure costs by \$320k annually.
+          </p>
+        </div>
+
+        <div class="relative pl-6">
+          <span class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-zinc-300 dark:bg-zinc-700 border-2 border-zinc-50 dark:border-zinc-950"></span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between">
+            <h3 class="font-semibold text-zinc-900 dark:text-white">Senior Backend Engineer &middot; StripePartner Systems</h3>
+            <span class="text-xs font-mono text-zinc-400">2019 &mdash; 2022</span>
+          </div>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+            Engineered automated reconciliation pipelines handling \$40M+ in weekly transaction volume with zero discrepancies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="p-8 rounded-2xl bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-4">
+      <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">Let’s build something together</h2>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl">
+        I’m currently open to advisory roles, technical architecture reviews, or high-impact contract projects.
+      </p>
+      <div class="flex flex-wrap items-center gap-4 pt-2">
+        <a href="mailto:alex@rivera.dev" class="px-5 py-2.5 bg-zinc-900 dark:bg-white text-zinc-50 dark:text-zinc-900 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+          alex@rivera.dev
+        </a>
+        <a href="https://github.com" target="_blank" class="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
+          GitHub &rarr;
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">
+          LinkedIn &rarr;
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-200 dark:border-zinc-850 py-8 text-center text-xs font-mono text-zinc-500">
+    Designed with Minimalist Dev Template &middot; Built with semantic HTML & Tailwind CSS
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('themeToggle');
+    // Check saved theme or system preference
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+  </script>
+</body>
+</html>
